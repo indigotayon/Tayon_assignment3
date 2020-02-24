@@ -1,0 +1,66 @@
+import java.util.Scanner;
+import java.security.SecureRandom;
+
+
+public class CAI1 {
+
+	Scanner scan = new Scanner(System.in);
+	int correctAns;
+	int userAns;
+	
+	public static void quiz()
+	{
+		
+	}	
+	
+	public static int askQuestion()
+	{
+		SecureRandom rand= new SecureRandom();
+		int random_int1 = rand.nextInt(10);
+		int random_int2 = rand.nextInt(10);
+		
+		System.out.println("How much is" + random_int1+ "times" + random_int2 + "?");
+		
+		return random_int1*random_int2;
+	}
+	
+	public static void readResponse()
+	{
+		
+		userAns = scan.nextInt();
+		number = askQuestion();
+	}
+	
+	public static void isAnswerCorrect()
+	{
+		Boolean answerCorrect = true;
+		answerCorrect = readResponse(userResponse.equals(number));
+	}
+	
+	public static void displayCorrectResponse()
+	{
+		while(isAnswerCorrect(true))
+		{
+			System.out.println("Very good!");
+		}
+	}
+	
+	public static void displayIncorrectResponse()
+	{
+		while(isAnswerCorrect(false))
+		{
+			System.out.print("No. Please try again");
+		}
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		
+
+	}
+
+}

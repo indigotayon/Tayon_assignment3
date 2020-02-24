@@ -1,0 +1,114 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class CAI2 
+{
+	static SecureRandom rand= new SecureRandom();
+	static int random_int1;
+	static int random_int2;
+	static Scanner scan = new Scanner(System.in);
+	static int correctAns;
+	static int userAns;
+	Boolean isCorrect = false;
+	
+	public static void quiz()
+	{
+		askQuestion();
+		readResponse(userAns);
+		isAnswerCorrect();
+		displayCorrectResponse();
+		displayIncorrectResponse();
+		
+	
+	}	
+	
+	public static void askQuestion()
+	{
+		
+		random_int1 = rand.nextInt(10);
+		random_int2 = rand.nextInt(10);
+		
+		System.out.println("How much is " + random_int1+ " times " + random_int2 + "?");
+		
+	}
+	
+	public static int readResponse(int ans)
+	{
+		ans = userAns;
+		System.out.print("\n Your answer:");
+		userAns = scan.nextInt();
+	
+		return userAns; 
+		
+	}
+	
+	public static int isAnswerCorrect()
+	{
+		return correctAns = random_int1*random_int2;
+		
+	}
+	
+	public static void displayCorrectResponse()
+	{
+		
+		int random_q = rand.nextInt(4)+1;
+		if(userAns == isAnswerCorrect())
+		{
+			switch(random_q)
+			{
+			case 1:System.out.println("Very good!");
+			break;
+			case 2:System.out.println("Excellent!");
+			break;
+			case 3:System.out.println("Nice work!");
+			break;
+			case 4:System.out.println("Keep up the good work!");
+			break;
+			
+			}
+			
+			System.exit(0);
+		}
+		
+	}
+	
+	public static void displayIncorrectResponse()
+	{
+		int random_q = rand.nextInt(4)+1;
+		while(userAns != isAnswerCorrect())
+		{
+		
+			switch(random_q)
+			{
+			case 1:System.out.println("No. Please try again.");
+			break;
+			case 2:System.out.println("Wrong. Try once more.");
+			break;
+			case 3:System.out.println("Dont give up!");
+			break;
+			case 4:System.out.println("No. Keep trying.");
+			break;
+			
+			}
+			
+			System.out.println("How much is " + random_int1+ " times " + random_int2 + "?");
+			readResponse(userAns); 
+			displayCorrectResponse();
+				
+		}
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		quiz();
+
+	}
+
+}
+
+
+
